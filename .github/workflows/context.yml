@@ -2,6 +2,6 @@ name: Contexts
 on: push
 jobs:
   print:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo "${{ github.actor }}"
