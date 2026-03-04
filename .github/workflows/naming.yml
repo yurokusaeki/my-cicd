@@ -1,9 +1,0 @@
-name: Naming
-on: push
-jobs:
-  print:
-    name: Super useful job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Amazing Script
-        run: echo "Hello"
