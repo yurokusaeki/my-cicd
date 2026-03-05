@@ -26,3 +26,18 @@ steps:
        ├─ env:
        │    └─ EXAMPLE: Defined by step level
        └─ run: echo "${EXAMPLE}"
+
+# ログマスクはbashの処理をGithub Actionは管理せずBashの処理結果だけを見ているのでログにSecretと一致するものがないかを確認している。
+
+printenv | grep 'LITERAL_'
+# 現在のシェルセッションで登録されているすべての環境変数を出力
+# | 左の出力を右の入力にわたす
+# LITERAL_という文字列を含む行だけに絞り込む
+
+${{ github.event.*>html_url }}
+# eventオブジェクト直下にある、オブジェクト型のプロパティが持つ html_url を全部集めた配列を指す
+
+# grobの ? は正規表現的に「直前の文字があるか、ないか」をOKとする
+ ya?mlだとyamlはaが一致でOK
+ ymlは文字が存在しないからyml（aが0文字）で一致
+ yemlはaが0文字でも1文字でもないから一致
